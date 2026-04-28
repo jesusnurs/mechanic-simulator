@@ -1,0 +1,43 @@
+# Unity generated folders
+/Library/
+/Logs/
+/Temp/
+/Obj/
+/Build/
+/Builds/
+/UserSettings/
+/MemoryCaptures/
+/Recordings/
+
+# Unity generated solution and project files
+/*.csproj
+/*.sln
+/*.user
+/*.userprefs
+/*.pidb
+/*.booproj
+/*.svd
+/*.pdb
+/*.mdb
+/*.opendb
+/*.VC.db
+
+# IDE settings
+/.vs/
+/.idea/
+/.vscode/
+
+# Visual Studio cache
+ExportedObj/
+consulo/
+
+# Crash reports
+sysinfo.txt
+
+# Burst / incremental build artifacts
+*_BackUpThisFolder_ButDontShipItWithYourGame/
+*_BurstDebugInformation_DoNotShip/
+
+# OS files
+.DS_Store
+Thumbs.db

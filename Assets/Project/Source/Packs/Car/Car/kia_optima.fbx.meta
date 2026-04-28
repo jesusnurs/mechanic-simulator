@@ -1,0 +1,242 @@
+fileFormatVersion: 2
+guid: 28893f7f137535247b217763b440742f
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_back_door_body1
+    second: {fileID: 2100000, guid: 905de84b438ad044985f4edef266e481, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_back_door_plastic_10
+    second: {fileID: 2100000, guid: a69f673e87cf63b4180f25ffa9970a13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_back_door_plastic_11
+    second: {fileID: 2100000, guid: 367b0a7fd5d72aa41a72f87345186d16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_back_door_plastic_13
+    second: {fileID: 2100000, guid: 45c7aece502faf74ab2d3677784b8484, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_back_seat_belt1
+    second: {fileID: 2100000, guid: 640ebec0a25f8dd45be143220f532777, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_back_seat_cloth1
+    second: {fileID: 2100000, guid: 53397b7951cc16044baeb65e43d935ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_front_door_lamp1
+    second: {fileID: 2100000, guid: e49ffa01c9b45794cb00b844daa80a5a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_other_interior_objects_plastic_2
+    second: {fileID: 2100000, guid: 70009adccd1c08e4eac2330ae36d0c82, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_seat_cloth1
+    second: {fileID: 2100000, guid: d3da3bb87361a8845993afc9d46b31af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_seat_plastic_6
+    second: {fileID: 2100000, guid: 31715a82c46e1e04d929b7ca4b84ab0b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_seat_red_plastic1
+    second: {fileID: 2100000, guid: d5585a97a00f8324196599566efc98ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_seat_reflection1
+    second: {fileID: 2100000, guid: 9d612d7ae923afb4290f20db61f58197, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_steering_wheel_plastic_2
+    second: {fileID: 2100000, guid: c527ef8900baaf5419855e740a986b39, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_steering_wheel_plastic_4
+    second: {fileID: 2100000, guid: 8d5d6e824f2222e44be0e2e7850d669c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_sweep_plastic_23
+    second: {fileID: 2100000, guid: 5f385e3d88eb33a429b78789c7f9a177, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_sweep_plastic_4
+    second: {fileID: 2100000, guid: c2d92f001dae8c444906a851eb229c32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_taillight_glass1
+    second: {fileID: 2100000, guid: 1503473438bb1de47807874a57c59cc1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_taillight_red_glass1
+    second: {fileID: 2100000, guid: 766a7a4d0af3ba14f875a626e09f682f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_wheel_brake_disk1
+    second: {fileID: 2100000, guid: 7b777f7301636414eb81a34779b3188b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kia_Optima_2014_wheel_rubber_2
+    second: {fileID: 2100000, guid: d8512d5c08b50d3458fadb18dee3063d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SMT_Display
+    second: {fileID: 2100000, guid: add587b813709c24589de8c7e7bb995e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SMT_chrome
+    second: {fileID: 2100000, guid: 2db1372ddae63f3468917da968e654f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SMT_glass
+    second: {fileID: 2100000, guid: f04e916323bfb5a478a6e634303d4f60, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SMT_metal
+    second: {fileID: 2100000, guid: 8cd9b7937a2d8cc4e9aefad17946ce44, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SMT_orange_glass1
+    second: {fileID: 2100000, guid: 6ccca2b8342f9bb4db38cc39ac2ce104, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SMTred_glass1
+    second: {fileID: 2100000, guid: af50129304861854fa1262f6ba633c8e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn1
+    second: {fileID: 2100000, guid: b2cd80c3d8804ff43890a03e0ae7c8c0, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
