@@ -1,0 +1,272 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4af8090905f49e5b9d3d1a7f7720479, type: 3}
+  m_Name: BrakeDiscScenarioTextConfig
+  m_EditorClassIdentifier: 
+  steps:
+  - step: 0
+    header: "Этап 1: Подготовка"
+    task: "Нажмите на рычаг Carjack, чтобы поднять Caret."
+    prompt: "ЛКМ - поднять машину"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 1
+    header: "Этап 1: Колесо"
+    task: "Снимите крышку колеса (kalpak)."
+    prompt: "ЛКМ - снять крышку"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 2
+    header: "Этап 1: Колесо"
+    task: "Положите крышку на отмеченное место на столе."
+    prompt: "ЛКМ - положить крышку"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 3
+    header: "Этап 1: Колесо"
+    task: "Открутите 5 болтов колеса."
+    prompt: "ЛКМ - открутить болт"
+    progressFormat: "Болты сняты: {0}/{1}"
+    requiredToolId: DynamometricWrench
+  - step: 4
+    header: "Этап 1: Колесо"
+    task: "Положите снятые болты колеса на отмеченные места на столе."
+    prompt: "ЛКМ - положить болт"
+    progressFormat: "Болты на столе: {0}/{1}"
+    requiredToolId: Hands
+  - step: 5
+    header: "Этап 1: Колесо"
+    task: "Снимите колесо со ступицы."
+    prompt: "ЛКМ - снять колесо"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 6
+    header: "Этап 1: Колесо"
+    task: "Поставьте колесо на его место на столе."
+    prompt: "ЛКМ - поставить колесо"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 7
+    header: "Этап 2: Суппорт"
+    task: "Открутите болты крепления суппорта."
+    prompt: "ЛКМ - открутить болт суппорта"
+    progressFormat: "Болты суппорта сняты: {0}/{1}"
+    requiredToolId: DynamometricWrench
+  - step: 8
+    header: "Этап 2: Суппорт"
+    task: "Положите болты суппорта на отмеченные места на столе."
+    prompt: "ЛКМ - положить болт суппорта"
+    progressFormat: "Болты суппорта на столе: {0}/{1}"
+    requiredToolId: Hands
+  - step: 9
+    header: "Этап 2: Суппорт"
+    task: "Снимите суппорт и освободите доступ к колодкам."
+    prompt: "ЛКМ - снять суппорт"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 10
+    header: "Этап 2: Суппорт"
+    task: "Положите суппорт на отмеченное место на столе."
+    prompt: "ЛКМ - положить суппорт"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 11
+    header: "Этап 2: Колодки"
+    task: "Снимите тормозные колодки."
+    prompt: "ЛКМ - снять колодку"
+    progressFormat: "Колодки сняты: {0}/{1}"
+    requiredToolId: Hands
+  - step: 12
+    header: "Этап 2: Колодки"
+    task: "Положите тормозные колодки на стол."
+    prompt: "ЛКМ - положить колодку"
+    progressFormat: "Колодки на столе: {0}/{1}"
+    requiredToolId: Hands
+  - step: 13
+    header: "Этап 2: Скоба"
+    task: "Открутите болты скобы суппорта."
+    prompt: "ЛКМ - открутить болт скобы"
+    progressFormat: "Болты скобы сняты: {0}/{1}"
+    requiredToolId: DynamometricWrench
+  - step: 14
+    header: "Этап 2: Скоба"
+    task: "Положите болты скобы суппорта на стол."
+    prompt: "ЛКМ - положить болт скобы"
+    progressFormat: "Болты скобы на столе: {0}/{1}"
+    requiredToolId: Hands
+  - step: 15
+    header: "Этап 2: Скоба"
+    task: "Снимите скобу суппорта."
+    prompt: "ЛКМ - снять скобу"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 16
+    header: "Этап 2: Скоба"
+    task: "Положите скобу суппорта на стол."
+    prompt: "ЛКМ - положить скобу"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 17
+    header: "Этап 2: Диск"
+    task: "Открутите фиксирующий винт тормозного диска."
+    prompt: "Удерживайте ЛКМ - открутить винт"
+    progressFormat: 
+    requiredToolId: DynamometricWrench
+  - step: 18
+    header: "Этап 2: Диск"
+    task: "Положите фиксирующий винт на стол."
+    prompt: "ЛКМ - положить винт"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 19
+    header: "Этап 2: Диск"
+    task: "Снимите старый тормозной диск."
+    prompt: "ЛКМ - снять старый диск"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 20
+    header: "Этап 2: Диск"
+    task: "Положите старый тормозной диск на стол."
+    prompt: "ЛКМ - положить старый диск"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 21
+    header: "Этап 3: Новый диск"
+    task: "Установите новый тормозной диск со стола."
+    prompt: "ЛКМ - установить новый диск"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 22
+    header: "Этап 3: Новый диск"
+    task: "Возьмите фиксирующий винт со стола."
+    prompt: "ЛКМ - взять винт"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 23
+    header: "Этап 3: Новый диск"
+    task: "Вставьте фиксирующий винт в тормозной диск."
+    prompt: "ЛКМ - вставить винт"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 24
+    header: "Этап 3: Новый диск"
+    task: "Затяните фиксирующий винт."
+    prompt: "Удерживайте ЛКМ - затянуть винт"
+    progressFormat: 
+    requiredToolId: DynamometricWrench
+  - step: 25
+    header: "Этап 3: Сборка"
+    task: "Возьмите скобу суппорта со стола."
+    prompt: "ЛКМ - взять скобу"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 26
+    header: "Этап 3: Сборка"
+    task: "Установите скобу суппорта на место."
+    prompt: "ЛКМ - установить скобу"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 27
+    header: "Этап 3: Сборка"
+    task: "Возьмите болты скобы суппорта со стола."
+    prompt: "ЛКМ - взять болт скобы"
+    progressFormat: "Болты взяты: {0}/{1}"
+    requiredToolId: Hands
+  - step: 28
+    header: "Этап 3: Сборка"
+    task: "Поставьте и затяните болты скобы суппорта."
+    prompt: "Удерживайте ЛКМ - затянуть болт скобы"
+    progressFormat: "Болты скобы затянуты: {0}/{1}"
+    requiredToolId: DynamometricWrench
+  - step: 29
+    header: "Этап 3: Сборка"
+    task: "Возьмите тормозные колодки со стола."
+    prompt: "ЛКМ - взять колодку"
+    progressFormat: "Колодки взяты: {0}/{1}"
+    requiredToolId: Hands
+  - step: 30
+    header: "Этап 3: Сборка"
+    task: "Установите тормозные колодки на место."
+    prompt: "ЛКМ - установить колодку"
+    progressFormat: "Колодки установлены: {0}/{1}"
+    requiredToolId: Hands
+  - step: 31
+    header: "Этап 3: Сборка"
+    task: "Возьмите суппорт со стола."
+    prompt: "ЛКМ - взять суппорт"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 32
+    header: "Этап 3: Сборка"
+    task: "Установите суппорт на место."
+    prompt: "ЛКМ - установить суппорт"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 33
+    header: "Этап 3: Сборка"
+    task: "Возьмите болты суппорта со стола."
+    prompt: "ЛКМ - взять болт суппорта"
+    progressFormat: "Болты взяты: {0}/{1}"
+    requiredToolId: Hands
+  - step: 34
+    header: "Этап 3: Сборка"
+    task: "Поставьте и затяните болты крепления суппорта."
+    prompt: "Удерживайте ЛКМ - затянуть болт суппорта"
+    progressFormat: "Болты суппорта затянуты: {0}/{1}"
+    requiredToolId: DynamometricWrench
+  - step: 35
+    header: "Этап 4: Колесо"
+    task: "Возьмите колесо со стола."
+    prompt: "ЛКМ - взять колесо"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 36
+    header: "Этап 4: Колесо"
+    task: "Установите колесо обратно на ступицу."
+    prompt: "ЛКМ - установить колесо"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 37
+    header: "Этап 4: Колесо"
+    task: "Возьмите болты колеса со стола."
+    prompt: "ЛКМ - взять болт колеса"
+    progressFormat: "Болты взяты: {0}/{1}"
+    requiredToolId: Hands
+  - step: 38
+    header: "Этап 4: Колесо"
+    task: "Поставьте и затяните 5 болтов колеса."
+    prompt: "Удерживайте ЛКМ - затянуть болт колеса"
+    progressFormat: "Болты колеса затянуты: {0}/{1}"
+    requiredToolId: DynamometricWrench
+  - step: 39
+    header: "Этап 4: Колесо"
+    task: "Возьмите колпак со стола."
+    prompt: "ЛКМ - взять колпак"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 40
+    header: "Этап 4: Колесо"
+    task: "Поставьте колпак обратно на колесо."
+    prompt: "ЛКМ - поставить колпак"
+    progressFormat: 
+    requiredToolId: Hands
+  - step: 41
+    header: "Готово"
+    task: "Ремонт завершён. Тормозной диск заменён."
+    prompt: 
+    progressFormat: 
+    requiredToolId: Hands
+  scenarioNotReadyReason: "Сценарий ещё не готов"
+  differentTaskReason: "Сейчас нужно выполнить другую задачу"
+  alreadyDoneReason: "Это действие уже выполнено"
+  wrongToolReasonFormat: "Нужен инструмент: {0}"
+  emptyHandsRequiredReason: "Уберите инструмент: нажмите F"
