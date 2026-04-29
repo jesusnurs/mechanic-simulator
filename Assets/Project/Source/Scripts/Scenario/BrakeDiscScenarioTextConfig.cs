@@ -42,6 +42,7 @@ namespace BigDreamLab.Scenario
             new StepText { step = BrakeDiscScenarioStep.PlaceCaliperBracketOnTable, header = "Этап 2: Скоба", task = "Положите скобу суппорта на стол.", prompt = "ЛКМ - положить скобу" },
             new StepText { step = BrakeDiscScenarioStep.RemoveOldBrakeDisc, header = "Этап 2: Диск", task = "Снимите старый тормозной диск.", prompt = "ЛКМ - снять старый диск" },
             new StepText { step = BrakeDiscScenarioStep.PlaceOldBrakeDiscOnTable, header = "Этап 2: Диск", task = "Положите старый тормозной диск на стол.", prompt = "ЛКМ - положить старый диск" },
+            new StepText { step = BrakeDiscScenarioStep.TakeNewBrakeDiscFromTable, header = "Этап 3: Новый диск", task = "Возьмите новый тормозной диск со стола.", prompt = "ЛКМ - взять новый диск" },
             new StepText { step = BrakeDiscScenarioStep.InstallNewBrakeDisc, header = "Этап 3: Новый диск", task = "Установите новый тормозной диск со стола.", prompt = "ЛКМ - установить новый диск" },
             new StepText { step = BrakeDiscScenarioStep.TakeCaliperBracketFromTable, header = "Этап 3: Сборка", task = "Возьмите скобу суппорта со стола.", prompt = "ЛКМ - взять скобу" },
             new StepText { step = BrakeDiscScenarioStep.InstallCaliperBracket, header = "Этап 3: Сборка", task = "Установите скобу суппорта на место.", prompt = "ЛКМ - установить скобу" },

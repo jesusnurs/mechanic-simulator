@@ -86,7 +86,6 @@ namespace BigDreamLab.Player
         {
             m_SuppressInteractThisFrame = false;
             ResolveReferences();
-            HandleCursor();
 
             if (m_InputBlocked)
             {
@@ -94,6 +93,7 @@ namespace BigDreamLab.Player
                 return;
             }
 
+            HandleCursor();
             HandleLook();
             HandleInteractionTimer();
             HandleMovement(Time.deltaTime);
@@ -161,8 +161,6 @@ namespace BigDreamLab.Player
 
             m_InteractAction = new InputAction("Interact", InputActionType.Button);
             m_InteractAction.AddBinding("<Mouse>/leftButton");
-            m_InteractAction.AddBinding("<Keyboard>/e");
-            m_InteractAction.AddBinding("<Gamepad>/buttonSouth");
 
             m_SprintAction = new InputAction("Sprint", InputActionType.Button);
             m_SprintAction.AddBinding("<Keyboard>/leftShift");
@@ -281,7 +279,7 @@ namespace BigDreamLab.Player
             m_InteractHoldTime = 0f;
         }
 
-        void SetCursorLocked(bool locked)
+        public void SetCursorLocked(bool locked)
         {
             m_CursorLocked = locked;
             Cursor.lockState = locked ? CursorLockMode.Locked : CursorLockMode.None;

@@ -1,8 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
 using BigDreamLab.Interaction;
 using BigDreamLab.Player;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace BigDreamLab.Scenario
 {
@@ -24,19 +26,26 @@ namespace BigDreamLab.Scenario
 
         [Header("Renderer Visibility")]
         [SerializeField] bool hideRenderersOnStart;
-        [SerializeField] bool showRenderersBeforeAnimation;
+        [FormerlySerializedAs("showRenderersBeforeAnimation")]
+        [SerializeField] bool showRenderersOnInteractionStart;
         [SerializeField] bool showRenderersOnComplete;
-        [SerializeField] bool hideRenderersOnComplete = true;
+        [SerializeField] bool hideRenderersOnComplete;
         [SerializeField] Material hiddenRendererMaterial;
 
         [Header("Animation")]
         [SerializeField] bool animateTransform;
         [SerializeField] Transform animatedTransform;
-        [SerializeField] bool useTargetLocalPosition;
-        [SerializeField] Vector3 targetLocalPosition;
-        [SerializeField] Vector3 localPositionOffset;
-        [SerializeField] Vector3 localRotationOffset;
+        [SerializeField] Vector3 animationFromLocalPosition;
+        [FormerlySerializedAs("targetLocalPosition")]
+        [SerializeField] Vector3 animationToLocalPosition;
         [SerializeField, Min(0.01f)] float animationDuration = 0.45f;
+
+        [HideInInspector, FormerlySerializedAs("useTargetLocalPosition")]
+        [SerializeField] bool legacyUseTargetLocalPosition;
+        [HideInInspector, FormerlySerializedAs("localPositionOffset")]
+        [SerializeField] Vector3 legacyLocalPositionOffset;
+        [HideInInspector, FormerlySerializedAs("localRotationOffset")]
+        [SerializeField] Vector3 legacyLocalRotationOffset;
 
         [Header("Object Toggles")]
         [SerializeField] GameObject[] enableOnComplete;
@@ -52,7 +61,12 @@ namespace BigDreamLab.Scenario
         bool[] m_DefaultRendererEnabledStates;
         bool m_RendererStateCached;
         bool m_RenderersHidden;
+        Collider[] m_InteractionColliders;
+        bool[] m_DefaultColliderEnabledStates;
+        bool m_ColliderStateCached;
         bool m_WarnedAboutMissingHiddenMaterial;
+        static readonly Dictionary<Renderer, Material[]> s_DefaultMaterialsByRenderer = new Dictionary<Renderer, Material[]>();
+        static readonly Dictionary<Renderer, bool> s_DefaultEnabledByRenderer = new Dictionary<Renderer, bool>();
         static Material s_RuntimeHiddenMaterial;
 
         public BrakeDiscScenarioStep Step => step;
@@ -62,11 +76,18 @@ namespace BigDreamLab.Scenario
         public bool RequiresHold => requiresHold;
         public float HoldDuration => holdDuration;
 
+        void OnValidate()
+        {
+            MigrateLegacyAnimationSettings();
+        }
+
         void Awake()
         {
             m_SelectionOutline = GetComponent<SelectionOutline>();
             CacheFocusRenderers();
             CacheRendererState();
+            CacheColliderState();
+            MigrateLegacyAnimationSettings();
 
             if (hideRenderersOnStart)
                 SetRenderersHidden(true);
@@ -83,6 +104,37 @@ namespace BigDreamLab.Scenario
         public void ResetCompletion()
         {
             IsCompleted = false;
+        }
+
+        public Collider[] GetInteractionColliders()
+        {
+            CacheColliderState();
+            return m_InteractionColliders;
+        }
+
+        public void SetInteractionCollidersEnabled(bool isEnabled)
+        {
+            SetInteractionCollidersEnabled(isEnabled, true);
+        }
+
+        public void SetInteractionCollidersEnabled(bool isEnabled, bool respectInitialEnabledState)
+        {
+            CacheColliderState();
+            if (m_InteractionColliders == null)
+                return;
+
+            for (var i = 0; i < m_InteractionColliders.Length; i++)
+            {
+                var targetCollider = m_InteractionColliders[i];
+                if (targetCollider == null)
+                    continue;
+
+                targetCollider.enabled = isEnabled &&
+                    (!respectInitialEnabledState ||
+                    m_DefaultColliderEnabledStates == null ||
+                    i >= m_DefaultColliderEnabledStates.Length ||
+                    m_DefaultColliderEnabledStates[i]);
+            }
         }
 
         public bool ShouldShowFocus(PlayerInteractionContext context)
@@ -156,7 +208,7 @@ namespace BigDreamLab.Scenario
 
         IEnumerator CompleteRoutine()
         {
-            if (showRenderersBeforeAnimation)
+            if (showRenderersOnInteractionStart)
                 SetRenderersHidden(false);
 
             if (animateTransform)
@@ -168,40 +220,36 @@ namespace BigDreamLab.Scenario
             if (showRenderersOnComplete)
                 SetRenderersHidden(false);
 
+            if (hideRenderersOnComplete)
+                SetRenderersHidden(true);
+
             completed?.Invoke();
             scenarioManager?.NotifyActionCompleted(this);
             m_CompletionRoutine = null;
 
             if (disableThisObjectOnComplete)
             {
-                if (hideRenderersOnComplete)
-                    SetRenderersHidden(true);
-                else
-                    gameObject.SetActive(false);
+                ResetAnimatedTransformToFrom();
+                gameObject.SetActive(false);
             }
         }
 
         IEnumerator AnimateRoutine()
         {
             var target = animatedTransform != null ? animatedTransform : transform;
-            var startPosition = target.localPosition;
-            var startRotation = target.localRotation;
-            var endPosition = useTargetLocalPosition ? targetLocalPosition : startPosition + localPositionOffset;
-            var endRotation = startRotation * Quaternion.Euler(localRotationOffset);
             var elapsed = 0f;
+            target.localPosition = animationFromLocalPosition;
 
             while (elapsed < animationDuration)
             {
                 elapsed += Time.deltaTime;
                 var t = Mathf.Clamp01(elapsed / animationDuration);
                 var eased = Mathf.SmoothStep(0f, 1f, t);
-                target.localPosition = Vector3.Lerp(startPosition, endPosition, eased);
-                target.localRotation = Quaternion.Slerp(startRotation, endRotation, eased);
+                target.localPosition = Vector3.Lerp(animationFromLocalPosition, animationToLocalPosition, eased);
                 yield return null;
             }
 
-            target.localPosition = endPosition;
-            target.localRotation = endRotation;
+            target.localPosition = animationToLocalPosition;
         }
 
         void ApplyObjectToggles(bool disableSelf)
@@ -228,20 +276,74 @@ namespace BigDreamLab.Scenario
             }
 
             if (disableSelf && disableThisObjectOnComplete)
-            {
-                if (hideRenderersOnComplete)
-                    SetRenderersHidden(true);
-                else
-                    gameObject.SetActive(false);
-            }
+                gameObject.SetActive(false);
         }
 
         void CacheFocusRenderers()
         {
             if (focusRenderers != null && focusRenderers.Length > 0)
+            {
+                focusRenderers = FilterOwnedRenderers(focusRenderers);
                 return;
+            }
 
-            focusRenderers = GetComponentsInChildren<Renderer>(true);
+            focusRenderers = FilterOwnedRenderers(GetComponentsInChildren<Renderer>(true));
+        }
+
+        Renderer[] FilterOwnedRenderers(Renderer[] renderers)
+        {
+            var ownedRenderers = new List<Renderer>();
+            foreach (var targetRenderer in renderers)
+            {
+                if (targetRenderer != null && IsOwnedRenderer(targetRenderer))
+                    ownedRenderers.Add(targetRenderer);
+            }
+
+            return ownedRenderers.ToArray();
+        }
+
+        bool ShouldHideRenderersOnStart()
+        {
+            if (!hideRenderersOnStart)
+                return false;
+
+            var siblingActions = GetComponents<ScenarioStepInteractable>();
+            if (siblingActions.Length <= 1)
+                return true;
+
+            foreach (var siblingAction in siblingActions)
+            {
+                if (siblingAction == null || ReferenceEquals(siblingAction, this))
+                    continue;
+
+                if (!siblingAction.hideRenderersOnStart && SharesRendererWith(siblingAction))
+                    return false;
+            }
+
+            return true;
+        }
+
+        bool SharesRendererWith(ScenarioStepInteractable other)
+        {
+            if (other == null)
+                return false;
+
+            CacheFocusRenderers();
+            other.CacheFocusRenderers();
+
+            foreach (var targetRenderer in focusRenderers)
+            {
+                if (targetRenderer == null)
+                    continue;
+
+                foreach (var otherRenderer in other.focusRenderers)
+                {
+                    if (ReferenceEquals(targetRenderer, otherRenderer))
+                        return true;
+                }
+            }
+
+            return false;
         }
 
         void SetFocusRenderersVisible(bool isVisible)
@@ -258,9 +360,6 @@ namespace BigDreamLab.Scenario
         {
             CacheFocusRenderers();
             CacheRendererState();
-
-            if (m_RenderersHidden == isHidden)
-                return;
 
             var hiddenMaterial = ResolveHiddenRendererMaterial();
             for (var i = 0; i < focusRenderers.Length; i++)
@@ -315,9 +414,118 @@ namespace BigDreamLab.Scenario
                 if (targetRenderer == null)
                     continue;
 
-                m_DefaultRendererMaterials[i] = targetRenderer.sharedMaterials;
-                m_DefaultRendererEnabledStates[i] = targetRenderer.enabled;
+                if (!s_DefaultMaterialsByRenderer.ContainsKey(targetRenderer))
+                {
+                    s_DefaultMaterialsByRenderer.Add(targetRenderer, targetRenderer.sharedMaterials);
+                    s_DefaultEnabledByRenderer.Add(targetRenderer, targetRenderer.enabled);
+                }
+
+                m_DefaultRendererMaterials[i] = s_DefaultMaterialsByRenderer[targetRenderer];
+                m_DefaultRendererEnabledStates[i] = s_DefaultEnabledByRenderer[targetRenderer];
             }
+        }
+
+        void CacheColliderState()
+        {
+            if (m_ColliderStateCached)
+                return;
+
+            m_ColliderStateCached = true;
+            var ownedColliders = new List<Collider>();
+            foreach (var targetCollider in GetComponentsInChildren<Collider>(true))
+            {
+                if (targetCollider != null && IsOwnedInteractionCollider(targetCollider))
+                    ownedColliders.Add(targetCollider);
+            }
+
+            m_InteractionColliders = ownedColliders.ToArray();
+            m_DefaultColliderEnabledStates = new bool[m_InteractionColliders.Length];
+
+            for (var i = 0; i < m_InteractionColliders.Length; i++)
+            {
+                var targetCollider = m_InteractionColliders[i];
+                if (targetCollider != null)
+                    m_DefaultColliderEnabledStates[i] = targetCollider.enabled;
+            }
+        }
+
+        bool IsOwnedInteractionCollider(Collider targetCollider)
+        {
+            var current = targetCollider.transform;
+            while (current != null && current.IsChildOf(transform))
+            {
+                var interactables = current.GetComponents<ScenarioStepInteractable>();
+                if (interactables.Length > 0)
+                {
+                    foreach (var interactable in interactables)
+                    {
+                        if (ReferenceEquals(interactable, this))
+                            return true;
+                    }
+
+                    return false;
+                }
+
+                if (current == transform)
+                    break;
+
+                current = current.parent;
+            }
+
+            return false;
+        }
+
+        bool IsOwnedRenderer(Renderer targetRenderer)
+        {
+            var current = targetRenderer.transform;
+            while (current != null && current.IsChildOf(transform))
+            {
+                var interactables = current.GetComponents<ScenarioStepInteractable>();
+                if (interactables.Length > 0)
+                {
+                    foreach (var interactable in interactables)
+                    {
+                        if (ReferenceEquals(interactable, this))
+                            return true;
+                    }
+
+                    return false;
+                }
+
+                if (current == transform)
+                    break;
+
+                current = current.parent;
+            }
+
+            return false;
+        }
+
+        void ResetAnimatedTransformToFrom()
+        {
+            if (!animateTransform)
+                return;
+
+            var target = animatedTransform != null ? animatedTransform : transform;
+            target.localPosition = animationFromLocalPosition;
+        }
+
+        void MigrateLegacyAnimationSettings()
+        {
+            _ = legacyLocalRotationOffset;
+
+            if (!animateTransform)
+                return;
+
+            var target = animatedTransform != null ? animatedTransform : transform;
+            if (animationFromLocalPosition == Vector3.zero)
+                animationFromLocalPosition = target.localPosition;
+
+            if (animationToLocalPosition != Vector3.zero || legacyUseTargetLocalPosition)
+                return;
+
+            if (legacyLocalPositionOffset != Vector3.zero)
+                animationToLocalPosition = animationFromLocalPosition + legacyLocalPositionOffset;
         }
 
         Material ResolveHiddenRendererMaterial()
@@ -365,9 +573,27 @@ namespace BigDreamLab.Scenario
             var renderers = target.GetComponentsInChildren<Renderer>(true);
             foreach (var targetRenderer in renderers)
             {
-                if (targetRenderer != null)
+                if (targetRenderer != null && IsOwnedByTarget(target, targetRenderer.transform))
                     targetRenderer.enabled = !isHidden;
             }
+        }
+
+        static bool IsOwnedByTarget(GameObject target, Transform targetTransform)
+        {
+            var current = targetTransform;
+            while (current != null && current.IsChildOf(target.transform))
+            {
+                if (current != target.transform &&
+                    current.GetComponents<ScenarioStepInteractable>().Length > 0)
+                    return false;
+
+                if (current == target.transform)
+                    break;
+
+                current = current.parent;
+            }
+
+            return true;
         }
     }
 }

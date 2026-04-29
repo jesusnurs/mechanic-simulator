@@ -1,0 +1,30 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="MechanicHud.uss" />
+    <ui:VisualElement name="hud-root" class="screen-root">
+        <ui:VisualElement name="task-panel" class="task-panel">
+            <ui:Label name="task-header" class="task-header" />
+            <ui:Label name="task-body" class="task-body" />
+        </ui:VisualElement>
+        <ui:VisualElement name="crosshair" class="crosshair" />
+        <ui:VisualElement name="hold-progress-back" class="hold-progress-back">
+            <ui:VisualElement name="hold-progress-fill" class="hold-progress-fill" />
+        </ui:VisualElement>
+        <ui:Label name="interaction-prompt" class="interaction-prompt" />
+        <ui:Label name="current-tool" class="current-tool" />
+        <ui:Label name="control-hint" class="control-hint" />
+    </ui:VisualElement>
+    <ui:VisualElement name="welcome-root" class="screen-root welcome-root">
+        <ui:VisualElement name="welcome-panel" class="welcome-panel">
+            <ui:Label name="welcome-title" class="welcome-title" />
+            <ui:Label name="welcome-body" class="welcome-body" />
+            <ui:Label name="welcome-close" class="welcome-close" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="victory-root" class="screen-root victory-root">
+        <ui:VisualElement name="victory-panel" class="victory-panel">
+            <ui:Label name="victory-title" class="victory-title" text="Готово" />
+            <ui:Label name="victory-body" class="victory-body" text="Ремонт завершён. Тормозной диск заменён." />
+            <ui:Button name="restart-button" class="restart-button" text="Начать заново" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

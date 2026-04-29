@@ -13,7 +13,7 @@ namespace BigDreamLab.Interaction
         [SerializeField] UnityEvent interacted;
         [SerializeField] UnityEvent<float> holdProgressChanged;
 
-        public string InteractionPrompt => textConfig != null ? textConfig.genericInteractionPrompt : "ЛКМ / E - взаимодействовать";
+        public string InteractionPrompt => textConfig != null ? textConfig.genericInteractionPrompt : "ЛКМ - взаимодействовать";
         public bool RequiresHold => requiresHold;
         public float HoldDuration => holdDuration;
 

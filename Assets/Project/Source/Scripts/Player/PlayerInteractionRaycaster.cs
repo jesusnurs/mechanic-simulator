@@ -1,4 +1,5 @@
 using BigDreamLab.Interaction;
+using BigDreamLab.Scenario;
 using UnityEngine;
 
 namespace BigDreamLab.Player
@@ -31,7 +32,7 @@ namespace BigDreamLab.Player
         public bool FocusedCanInteract { get; private set; }
         public string CurrentPrompt { get; private set; }
         public float HoldProgress { get; private set; }
-        string FallbackPrompt => textConfig != null ? textConfig.fallbackPrompt : "ЛКМ / E - взаимодействовать";
+        string FallbackPrompt => textConfig != null ? textConfig.fallbackPrompt : "ЛКМ - взаимодействовать";
 
         void Awake()
         {
@@ -167,8 +168,15 @@ namespace BigDreamLab.Player
                 return null;
 
             hit = m_RaycastHits[closestIndex];
-            var behaviours = hit.collider.GetComponentsInParent<MonoBehaviour>(true);
             var context = new PlayerInteractionContext(playerInput, this, rayCamera, hit, playerInput != null ? playerInput.InteractHoldTime : 0f);
+            var scenarioInteractable = FindScenarioInteractable(hit.collider, context);
+            if (scenarioInteractable != null)
+            {
+                outline = ResolveOutline(hit.collider, scenarioInteractable);
+                return scenarioInteractable;
+            }
+
+            var behaviours = hit.collider.GetComponentsInParent<MonoBehaviour>(true);
             IPlayerInteractable interactable = null;
             var rejectedByFocusVisibility = false;
             foreach (var behaviour in behaviours)
@@ -197,6 +205,18 @@ namespace BigDreamLab.Player
 
             outline = ResolveOutline(hit.collider, interactable);
             return interactable;
+        }
+
+        ScenarioStepInteractable FindScenarioInteractable(Collider hitCollider, PlayerInteractionContext context)
+        {
+            var scenarioActions = hitCollider.GetComponentsInParent<ScenarioStepInteractable>(true);
+            foreach (var scenarioAction in scenarioActions)
+            {
+                if (scenarioAction != null && scenarioAction.ShouldShowFocus(context))
+                    return scenarioAction;
+            }
+
+            return null;
         }
 
         bool IsOwnCollider(Collider targetCollider)

@@ -27,7 +27,8 @@ namespace BigDreamLab.Scenario
         PlaceCaliperBracketOnTable = 16,
         RemoveOldBrakeDisc = 19,
         PlaceOldBrakeDiscOnTable = 20,
-        InstallNewBrakeDisc = 21,
+        TakeNewBrakeDiscFromTable = 21,
+        InstallNewBrakeDisc = 22,
         TakeCaliperBracketFromTable = 25,
         InstallCaliperBracket = 26,
         TakeCaliperBracketBoltsFromTable = 27,
@@ -59,7 +60,8 @@ namespace BigDreamLab.Scenario
         [Header("Flow")]
         [SerializeField] BrakeDiscScenarioStep initialStep = BrakeDiscScenarioStep.RaiseCarWithJack;
         [SerializeField] bool resetActionsOnStart = true;
-        [SerializeField] bool holdAltToHighlightCurrentTargets = true;
+        [SerializeField] bool toggleSpaceToHighlightCurrentTargets = true;
+        [SerializeField] bool forceEnableCurrentActionColliders = true;
 
         public BrakeDiscScenarioStep CurrentStep { get; private set; }
         public string ScenarioNotReadyReason => textConfig != null ? textConfig.scenarioNotReadyReason : "Сценарий ещё не готов";
@@ -68,6 +70,11 @@ namespace BigDreamLab.Scenario
 
         readonly List<SelectionOutline> m_HintOutlines = new List<SelectionOutline>();
         bool m_IsHintVisible;
+
+        void OnValidate()
+        {
+            SortActionsForInspector();
+        }
 
         void Awake()
         {
@@ -150,6 +157,7 @@ namespace BigDreamLab.Scenario
                 AdvanceToNextStepWithActions();
 
             RefreshActionFocus();
+            RefreshHintTargets();
             RefreshHud();
         }
 
@@ -170,10 +178,16 @@ namespace BigDreamLab.Scenario
                     actions.Add(sceneAction);
             }
 
-            actions.Sort((left, right) => left.Step.CompareTo(right.Step));
+            SortActionsForInspector();
 
             foreach (var action in actions)
                 action.Configure(this);
+        }
+
+        void SortActionsForInspector()
+        {
+            actions.RemoveAll(action => action == null);
+            actions.Sort((left, right) => left.Step.CompareTo(right.Step));
         }
 
         void ResetActions()
@@ -235,8 +249,53 @@ namespace BigDreamLab.Scenario
 
         void RefreshActionFocus()
         {
+            var currentColliders = new HashSet<Collider>();
+            var allInteractionColliders = new HashSet<Collider>();
             foreach (var action in actions)
-                action.SetScenarioFocusAllowed(IsCurrentTarget(action));
+            {
+                if (action == null)
+                    continue;
+
+                var actionColliders = action.GetInteractionColliders();
+                foreach (var targetCollider in actionColliders)
+                {
+                    if (targetCollider != null)
+                        allInteractionColliders.Add(targetCollider);
+                }
+
+                if (!IsCurrentTarget(action))
+                    continue;
+
+                foreach (var targetCollider in actionColliders)
+                {
+                    if (targetCollider != null)
+                        currentColliders.Add(targetCollider);
+                }
+            }
+
+            foreach (var action in actions)
+            {
+                if (action == null)
+                    continue;
+
+                var isCurrentTarget = IsCurrentTarget(action);
+                action.SetScenarioFocusAllowed(isCurrentTarget);
+            }
+
+            foreach (var targetCollider in allInteractionColliders)
+            {
+                if (targetCollider != null)
+                    targetCollider.enabled = currentColliders.Contains(targetCollider);
+            }
+
+            if (!forceEnableCurrentActionColliders)
+            {
+                foreach (var action in actions)
+                {
+                    if (action != null)
+                        action.SetInteractionCollidersEnabled(IsCurrentTarget(action));
+                }
+            }
         }
 
         void RefreshHud()
@@ -255,26 +314,21 @@ namespace BigDreamLab.Scenario
 
             hud.SetToolName(toolName);
             hud.SetTask(header, task, progress);
+
+            if (CurrentStep == BrakeDiscScenarioStep.Complete)
+                hud.ShowVictory();
         }
 
         void UpdateHintInput()
         {
-            if (!holdAltToHighlightCurrentTargets)
+            if (!toggleSpaceToHighlightCurrentTargets)
                 return;
 
             var keyboard = Keyboard.current;
-            var shouldShowHint = keyboard != null &&
-                (keyboard.leftAltKey.isPressed || keyboard.rightAltKey.isPressed);
-
-            if (shouldShowHint == m_IsHintVisible)
-            {
-                if (m_IsHintVisible)
-                    RefreshHintTargets();
-
+            if (keyboard == null || !keyboard.spaceKey.wasPressedThisFrame)
                 return;
-            }
 
-            SetHintVisible(shouldShowHint);
+            SetHintVisible(!m_IsHintVisible);
         }
 
         void SetHintVisible(bool isVisible)
@@ -313,5 +367,6 @@ namespace BigDreamLab.Scenario
                 m_HintOutlines.Add(outline);
             }
         }
+
     }
 }

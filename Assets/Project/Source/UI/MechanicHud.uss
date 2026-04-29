@@ -1,0 +1,142 @@
+.screen-root {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.task-panel {
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    width: 520px;
+    min-height: 128px;
+    padding: 14px 20px;
+    background-color: rgba(13, 14, 15, 0.78);
+    border-radius: 6px;
+}
+
+.task-header {
+    font-size: 26px;
+    -unity-font-style: bold;
+    color: white;
+}
+
+.task-body {
+    margin-top: 6px;
+    font-size: 21px;
+    white-space: normal;
+    color: white;
+}
+
+.crosshair {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -4px -4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.hold-progress-back {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -66px 36px;
+    width: 132px;
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+.hold-progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: rgba(89, 255, 115, 0.95);
+}
+
+.interaction-prompt {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -360px 70px;
+    width: 720px;
+    font-size: 24px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    color: white;
+}
+
+.current-tool {
+    position: absolute;
+    left: 50%;
+    bottom: 42px;
+    translate: -360px 0;
+    width: 720px;
+    font-size: 24px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    color: rgb(184, 235, 255);
+}
+
+.control-hint {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    width: 460px;
+    font-size: 18px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-right;
+    color: rgb(204, 219, 230);
+}
+
+.welcome-root {
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.68);
+}
+
+.victory-root {
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.72);
+}
+
+.welcome-panel, .victory-panel {
+    width: 820px;
+    min-height: 500px;
+    padding: 34px 54px;
+    background-color: rgba(10, 11, 13, 0.94);
+    border-radius: 6px;
+}
+
+.welcome-title, .victory-title {
+    font-size: 42px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    color: white;
+}
+
+.welcome-body, .victory-body {
+    margin-top: 36px;
+    font-size: 25px;
+    white-space: normal;
+    color: white;
+}
+
+.welcome-close {
+    margin-top: 36px;
+    font-size: 24px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    color: rgb(89, 255, 115);
+}
+
+.restart-button {
+    margin-top: 42px;
+    height: 56px;
+    font-size: 24px;
+    -unity-font-style: bold;
+}

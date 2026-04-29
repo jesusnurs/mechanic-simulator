@@ -347,22 +347,23 @@ MonoBehaviour:
   step: 7
   requiredToolId: 1
   completeOnlyOnce: 1
-  requiresHold: 0
-  holdDuration: 1.2
+  requiresHold: 1
+  holdDuration: 0.5
   hideRenderersUntilFocused: 0
   focusRenderers: []
   hideRenderersOnStart: 0
-  showRenderersBeforeAnimation: 0
+  showRenderersOnInteractionStart: 0
   showRenderersOnComplete: 0
   hideRenderersOnComplete: 1
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -401,27 +402,107 @@ MonoBehaviour:
   requiredToolId: 1
   completeOnlyOnce: 1
   requiresHold: 1
-  holdDuration: 1.2
+  holdDuration: 0.5
   hideRenderersUntilFocused: 0
   focusRenderers: []
-  hideRenderersOnStart: 1
-  showRenderersBeforeAnimation: 0
+  hideRenderersOnStart: 0
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 1
   hideRenderersOnComplete: 0
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
   completed:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &461737354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 461737357}
+  - component: {fileID: 461737356}
+  - component: {fileID: 461737355}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &461737355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461737354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.UI.InputSystemUIInputModule
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
+--- !u!114 &461737356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461737354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &461737357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461737354}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &547797596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -548,21 +629,22 @@ MonoBehaviour:
   requiredToolId: 1
   completeOnlyOnce: 1
   requiresHold: 1
-  holdDuration: 1.2
+  holdDuration: 0.5
   hideRenderersUntilFocused: 0
   focusRenderers: []
   hideRenderersOnStart: 0
-  showRenderersBeforeAnimation: 1
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 0
   hideRenderersOnComplete: 1
   hiddenRendererMaterial: {fileID: 0}
-  animateTransform: 1
+  animateTransform: 0
   animatedTransform: {fileID: 547797597}
-  useTargetLocalPosition: 1
-  targetLocalPosition: {x: 1.3, y: -0.3734, z: -0.1667}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 1.1533, y: -0.3734, z: -0.1667}
+  animationToLocalPosition: {x: 1.3, y: -0.3734, z: -0.1667}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 1
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -586,21 +668,22 @@ MonoBehaviour:
   requiredToolId: 1
   completeOnlyOnce: 1
   requiresHold: 1
-  holdDuration: 1.2
+  holdDuration: 0.5
   hideRenderersUntilFocused: 0
   focusRenderers: []
-  hideRenderersOnStart: 1
-  showRenderersBeforeAnimation: 0
+  hideRenderersOnStart: 0
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 1
   hideRenderersOnComplete: 0
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -628,22 +711,23 @@ MonoBehaviour:
   step: 7
   requiredToolId: 1
   completeOnlyOnce: 1
-  requiresHold: 0
-  holdDuration: 1.2
+  requiresHold: 1
+  holdDuration: 0.5
   hideRenderersUntilFocused: 0
   focusRenderers: []
   hideRenderersOnStart: 0
-  showRenderersBeforeAnimation: 0
+  showRenderersOnInteractionStart: 0
   showRenderersOnComplete: 0
   hideRenderersOnComplete: 1
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -682,21 +766,22 @@ MonoBehaviour:
   requiredToolId: 1
   completeOnlyOnce: 1
   requiresHold: 1
-  holdDuration: 1.2
+  holdDuration: 0.5
   hideRenderersUntilFocused: 0
   focusRenderers: []
-  hideRenderersOnStart: 1
-  showRenderersBeforeAnimation: 0
+  hideRenderersOnStart: 0
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 1
   hideRenderersOnComplete: 0
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -721,7 +806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5b4d83e951b3f0a47b6ca81833fffa9e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5b4d83e951b3f0a47b6ca81833fffa9e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -931,17 +1016,18 @@ MonoBehaviour:
   hideRenderersUntilFocused: 0
   focusRenderers: []
   hideRenderersOnStart: 0
-  showRenderersBeforeAnimation: 0
+  showRenderersOnInteractionStart: 0
   showRenderersOnComplete: 0
   hideRenderersOnComplete: 1
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -976,7 +1062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BigDreamLab.Scenario.ScenarioStepInteractable
   scenarioManager: {fileID: 815250542}
-  step: 21
+  step: 22
   requiredToolId: 
   completeOnlyOnce: 1
   requiresHold: 0
@@ -984,17 +1070,18 @@ MonoBehaviour:
   hideRenderersUntilFocused: 0
   focusRenderers: []
   hideRenderersOnStart: 0
-  showRenderersBeforeAnimation: 0
-  showRenderersOnComplete: 0
-  hideRenderersOnComplete: 1
+  showRenderersOnInteractionStart: 1
+  showRenderersOnComplete: 1
+  hideRenderersOnComplete: 0
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -1133,21 +1220,22 @@ MonoBehaviour:
   requiredToolId: 1
   completeOnlyOnce: 1
   requiresHold: 1
-  holdDuration: 1.2
+  holdDuration: 0.5
   hideRenderersUntilFocused: 0
   focusRenderers: []
   hideRenderersOnStart: 0
-  showRenderersBeforeAnimation: 1
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 0
   hideRenderersOnComplete: 1
   hiddenRendererMaterial: {fileID: 0}
-  animateTransform: 1
+  animateTransform: 0
   animatedTransform: {fileID: 774124478}
-  useTargetLocalPosition: 1
-  targetLocalPosition: {x: 1.3, y: -0.2291, z: -0.214}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 1.1533, y: -0.2291, z: -0.214}
+  animationToLocalPosition: {x: 1.3, y: -0.2291, z: -0.214}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 1
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -1171,21 +1259,22 @@ MonoBehaviour:
   requiredToolId: 1
   completeOnlyOnce: 1
   requiresHold: 1
-  holdDuration: 1.2
+  holdDuration: 0.5
   hideRenderersUntilFocused: 0
   focusRenderers: []
-  hideRenderersOnStart: 1
-  showRenderersBeforeAnimation: 0
+  hideRenderersOnStart: 0
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 1
   hideRenderersOnComplete: 0
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 1.3, y: -0.2291, z: -0.214}
+  animationToLocalPosition: {x: 1.1533, y: -0.2291, z: -0.214}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -1235,6 +1324,8 @@ GameObject:
   - component: {fileID: 815250541}
   - component: {fileID: 815250542}
   - component: {fileID: 815250543}
+  - component: {fileID: 815250545}
+  - component: {fileID: 815250544}
   m_Layer: 0
   m_Name: ScriptsHolder
   m_TagString: Untagged
@@ -1275,72 +1366,73 @@ MonoBehaviour:
   actions:
   - {fileID: 710000000000000034}
   - {fileID: 1602891137}
+  - {fileID: 1602891137}
   - {fileID: 738407220}
+  - {fileID: 738407220}
+  - {fileID: 569232039}
+  - {fileID: 569232039}
+  - {fileID: 1786092514}
   - {fileID: 774124481}
   - {fileID: 1786092514}
-  - {fileID: 569232039}
+  - {fileID: 1932929847}
+  - {fileID: 774124481}
+  - {fileID: 1859471377}
   - {fileID: 1932929847}
   - {fileID: 1859471377}
-  - {fileID: 1611275629}
   - {fileID: 1611275628}
   - {fileID: 1611275627}
+  - {fileID: 1611275629}
+  - {fileID: 1611275629}
   - {fileID: 1611275626}
   - {fileID: 1611275625}
+  - {fileID: 1611275627}
+  - {fileID: 1611275625}
+  - {fileID: 1611275626}
+  - {fileID: 1611275628}
   - {fileID: 710000000000000012}
+  - {fileID: 710000000000000012}
+  - {fileID: 1786091116}
   - {fileID: 1786091116}
   - {fileID: 581312856}
   - {fileID: 366807984}
+  - {fileID: 581312856}
+  - {fileID: 366807984}
+  - {fileID: 1786091114}
   - {fileID: 1786091115}
   - {fileID: 1786091114}
+  - {fileID: 1786091115}
+  - {fileID: 960930340}
   - {fileID: 960930340}
   - {fileID: 1786091113}
+  - {fileID: 1786091113}
+  - {fileID: 871066560}
+  - {fileID: 1129070742}
+  - {fileID: 1129070742}
   - {fileID: 871066560}
   - {fileID: 1786091112}
-  - {fileID: 1129070742}
   - {fileID: 1786091111}
+  - {fileID: 1786091111}
+  - {fileID: 1786091112}
   - {fileID: 710000000000000016}
+  - {fileID: 710000000000000016}
+  - {fileID: 710000000000000014}
   - {fileID: 710000000000000014}
   - {fileID: 1786091110}
   - {fileID: 1786091109}
+  - {fileID: 1786091110}
+  - {fileID: 1786091109}
+  - {fileID: 1473840171}
   - {fileID: 1473840171}
   - {fileID: 1786091108}
+  - {fileID: 1786091108}
+  - {fileID: 715551218}
   - {fileID: 715551218}
   - {fileID: 1786091107}
   - {fileID: 1786091106}
-  - {fileID: 715551218}
-  - {fileID: 1786091108}
-  - {fileID: 1473840171}
-  - {fileID: 1786091109}
-  - {fileID: 1786091110}
-  - {fileID: 710000000000000016}
-  - {fileID: 710000000000000014}
-  - {fileID: 1786091111}
-  - {fileID: 1129070742}
-  - {fileID: 1786091112}
-  - {fileID: 871066560}
-  - {fileID: 1786091113}
-  - {fileID: 960930340}
-  - {fileID: 1786091114}
-  - {fileID: 1786091115}
-  - {fileID: 581312856}
-  - {fileID: 366807984}
-  - {fileID: 1786091116}
-  - {fileID: 710000000000000012}
-  - {fileID: 1611275625}
-  - {fileID: 1611275626}
-  - {fileID: 1611275627}
-  - {fileID: 1611275628}
-  - {fileID: 1611275629}
-  - {fileID: 774124481}
-  - {fileID: 1786092514}
-  - {fileID: 569232039}
-  - {fileID: 1932929847}
-  - {fileID: 1859471377}
-  - {fileID: 738407220}
-  - {fileID: 1602891137}
   initialStep: 0
   resetActionsOnStart: 1
-  holdAltToHighlightCurrentTargets: 1
+  toggleSpaceToHighlightCurrentTargets: 1
+  forceEnableCurrentActionColliders: 1
 --- !u!114 &815250543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1354,12 +1446,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tools:
-  - toolId: DynamometricWrench
+  - toolId: 1
     displayName: "\u0414\u0438\u043D\u0430\u043C\u043E\u043C\u0435\u0442\u0440\u0438\u0447\u0435\u0441\u043A\u0438\u0439
       \u043A\u043B\u044E\u0447"
     handObject: {fileID: 1612682766}
     selectedOnStart: 0
   emptyToolName: "\u0420\u0443\u043A\u0438"
+--- !u!114 &815250544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815250540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: f56780735fc51644d85babcba623f8cd, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 4c349d8932ea805458c1f5390657dd87, type: 3}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!114 &815250545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815250540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ff3a4b2af04a04b977e595aa151a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BigDreamLab.UI.MechanicHudView
+  document: {fileID: 815250544}
 --- !u!114 &815250560 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 774420250001000003, guid: c9cfea0efbb42734f9521596d98203de, type: 3}
@@ -1396,18 +1524,19 @@ MonoBehaviour:
   holdDuration: 1.2
   hideRenderersUntilFocused: 0
   focusRenderers: []
-  hideRenderersOnStart: 1
-  showRenderersBeforeAnimation: 0
+  hideRenderersOnStart: 0
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 1
   hideRenderersOnComplete: 0
   hiddenRendererMaterial: {fileID: 0}
-  animateTransform: 0
-  animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animateTransform: 1
+  animatedTransform: {fileID: 856466988}
+  animationFromLocalPosition: {x: -1.299, y: 0.103684105, z: 0.08919744}
+  animationToLocalPosition: {x: -1.0823474, y: 0.103684105, z: 0.08919744}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -1440,17 +1569,18 @@ MonoBehaviour:
   hideRenderersUntilFocused: 0
   focusRenderers: []
   hideRenderersOnStart: 0
-  showRenderersBeforeAnimation: 0
+  showRenderersOnInteractionStart: 0
   showRenderersOnComplete: 0
   hideRenderersOnComplete: 1
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -1492,18 +1622,19 @@ MonoBehaviour:
   holdDuration: 1.2
   hideRenderersUntilFocused: 0
   focusRenderers: []
-  hideRenderersOnStart: 1
-  showRenderersBeforeAnimation: 0
+  hideRenderersOnStart: 0
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 1
   hideRenderersOnComplete: 0
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -1541,17 +1672,18 @@ MonoBehaviour:
   hideRenderersUntilFocused: 0
   focusRenderers: []
   hideRenderersOnStart: 0
-  showRenderersBeforeAnimation: 0
+  showRenderersOnInteractionStart: 0
   showRenderersOnComplete: 0
   hideRenderersOnComplete: 1
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -1593,18 +1725,19 @@ MonoBehaviour:
   holdDuration: 1.2
   hideRenderersUntilFocused: 0
   focusRenderers: []
-  hideRenderersOnStart: 1
-  showRenderersBeforeAnimation: 0
+  hideRenderersOnStart: 0
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 1
   hideRenderersOnComplete: 0
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -1667,17 +1800,18 @@ MonoBehaviour:
   hideRenderersUntilFocused: 0
   focusRenderers: []
   hideRenderersOnStart: 0
-  showRenderersBeforeAnimation: 0
+  showRenderersOnInteractionStart: 0
   showRenderersOnComplete: 0
   hideRenderersOnComplete: 1
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -1719,18 +1853,19 @@ MonoBehaviour:
   holdDuration: 1.2
   hideRenderersUntilFocused: 0
   focusRenderers: []
-  hideRenderersOnStart: 1
-  showRenderersBeforeAnimation: 0
+  hideRenderersOnStart: 0
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 1
   hideRenderersOnComplete: 0
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -1765,6 +1900,10 @@ PrefabInstance:
       propertyPath: interactionMask.m_Bits
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 774420250001000003, guid: c9cfea0efbb42734f9521596d98203de, type: 3}
+      propertyPath: view
+      value: 
+      objectReference: {fileID: 815250545}
     - target: {fileID: 1776478210895621703, guid: c9cfea0efbb42734f9521596d98203de, type: 3}
       propertyPath: <LocalizedText>k__BackingField.m_TableEntryReference.m_Key
       value: Confirm
@@ -2039,17 +2178,18 @@ MonoBehaviour:
   hideRenderersUntilFocused: 0
   focusRenderers: []
   hideRenderersOnStart: 0
-  showRenderersBeforeAnimation: 0
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 0
   hideRenderersOnComplete: 1
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -2091,18 +2231,19 @@ MonoBehaviour:
   holdDuration: 1.2
   hideRenderersUntilFocused: 0
   focusRenderers: []
-  hideRenderersOnStart: 1
-  showRenderersBeforeAnimation: 0
+  hideRenderersOnStart: 0
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 1
   hideRenderersOnComplete: 0
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -2643,23 +2784,24 @@ MonoBehaviour:
   scenarioManager: {fileID: 815250542}
   step: 1
   requiredToolId: 
-  completeOnlyOnce: 0
+  completeOnlyOnce: 1
   requiresHold: 0
   holdDuration: 1.2
   hideRenderersUntilFocused: 0
   focusRenderers: []
   hideRenderersOnStart: 0
-  showRenderersBeforeAnimation: 1
+  showRenderersOnInteractionStart: 0
   showRenderersOnComplete: 0
   hideRenderersOnComplete: 1
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 1
   animatedTransform: {fileID: 1602891132}
-  useTargetLocalPosition: 1
-  targetLocalPosition: {x: -0.099, y: -0.00060415134, z: 0.0006040475}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: -0.030942872, y: -0.00060415134, z: 0.0006040475}
+  animationToLocalPosition: {x: -0.099, y: -0.00060415134, z: 0.0006040475}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 1
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -2686,18 +2828,19 @@ MonoBehaviour:
   holdDuration: 1.2
   hideRenderersUntilFocused: 0
   focusRenderers: []
-  hideRenderersOnStart: 1
-  showRenderersBeforeAnimation: 0
+  hideRenderersOnStart: 0
+  showRenderersOnInteractionStart: 0
   showRenderersOnComplete: 1
   hideRenderersOnComplete: 0
   hiddenRendererMaterial: {fileID: 0}
-  animateTransform: 0
-  animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animateTransform: 1
+  animatedTransform: {fileID: 1602891132}
+  animationFromLocalPosition: {x: -0.099, y: -0.00060415134, z: 0.0006040475}
+  animationToLocalPosition: {x: -0.030942872, y: -0.00060415134, z: 0.0006040475}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -2788,6 +2931,10 @@ PrefabInstance:
       propertyPath: scenarioManager
       value: 
       objectReference: {fileID: 815250542}
+    - target: {fileID: 4773814818963139153, guid: ac466126194da1a4ca46778133ffed13, type: 3}
+      propertyPath: showRenderersOnInteractionStart
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5578658925877336265, guid: ac466126194da1a4ca46778133ffed13, type: 3}
       propertyPath: scenarioManager
       value: 
@@ -3196,21 +3343,22 @@ MonoBehaviour:
   requiredToolId: 1
   completeOnlyOnce: 1
   requiresHold: 1
-  holdDuration: 1.2
+  holdDuration: 0.5
   hideRenderersUntilFocused: 0
   focusRenderers: []
   hideRenderersOnStart: 0
-  showRenderersBeforeAnimation: 1
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 0
   hideRenderersOnComplete: 1
   hiddenRendererMaterial: {fileID: 0}
-  animateTransform: 1
+  animateTransform: 0
   animatedTransform: {fileID: 1786092511}
-  useTargetLocalPosition: 1
-  targetLocalPosition: {x: 1.3, y: -0.2851, z: -0.1384}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 1.1533, y: -0.2851, z: -0.1384}
+  animationToLocalPosition: {x: 1.3, y: -0.2851, z: -0.1384}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 1
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -3234,21 +3382,22 @@ MonoBehaviour:
   requiredToolId: 1
   completeOnlyOnce: 1
   requiresHold: 1
-  holdDuration: 1.2
+  holdDuration: 0.5
   hideRenderersUntilFocused: 0
   focusRenderers: []
-  hideRenderersOnStart: 1
-  showRenderersBeforeAnimation: 0
+  hideRenderersOnStart: 0
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 1
   hideRenderersOnComplete: 0
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 1.3, y: -0.2851, z: -0.1384}
+  animationToLocalPosition: {x: 1.1533, y: -0.2851, z: -0.1384}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -3397,21 +3546,22 @@ MonoBehaviour:
   requiredToolId: 1
   completeOnlyOnce: 1
   requiresHold: 1
-  holdDuration: 1.2
+  holdDuration: 0.5
   hideRenderersUntilFocused: 0
   focusRenderers: []
   hideRenderersOnStart: 0
-  showRenderersBeforeAnimation: 1
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 0
   hideRenderersOnComplete: 1
   hiddenRendererMaterial: {fileID: 0}
-  animateTransform: 1
+  animateTransform: 0
   animatedTransform: {fileID: 1859471374}
-  useTargetLocalPosition: 1
-  targetLocalPosition: {x: 1.3, y: -0.2851, z: -0.2916}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 1.1533, y: -0.2851, z: -0.2916}
+  animationToLocalPosition: {x: 1.3, y: -0.2851, z: -0.2916}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 1
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -3435,21 +3585,22 @@ MonoBehaviour:
   requiredToolId: 1
   completeOnlyOnce: 1
   requiresHold: 1
-  holdDuration: 1.2
+  holdDuration: 0.5
   hideRenderersUntilFocused: 0
   focusRenderers: []
-  hideRenderersOnStart: 1
-  showRenderersBeforeAnimation: 0
+  hideRenderersOnStart: 0
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 1
   hideRenderersOnComplete: 0
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -3577,21 +3728,22 @@ MonoBehaviour:
   requiredToolId: 1
   completeOnlyOnce: 1
   requiresHold: 1
-  holdDuration: 1.2
+  holdDuration: 0.5
   hideRenderersUntilFocused: 0
   focusRenderers: []
   hideRenderersOnStart: 0
-  showRenderersBeforeAnimation: 1
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 0
   hideRenderersOnComplete: 1
   hiddenRendererMaterial: {fileID: 0}
-  animateTransform: 1
+  animateTransform: 0
   animatedTransform: {fileID: 1932929844}
-  useTargetLocalPosition: 1
-  targetLocalPosition: {x: 1.3, y: -0.372, z: -0.2628}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 1.1533, y: -0.372, z: -0.2628}
+  animationToLocalPosition: {x: 1.3, y: -0.372, z: -0.2628}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 1
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -3615,21 +3767,22 @@ MonoBehaviour:
   requiredToolId: 1
   completeOnlyOnce: 1
   requiresHold: 1
-  holdDuration: 1.2
+  holdDuration: 0.5
   hideRenderersUntilFocused: 0
   focusRenderers: []
-  hideRenderersOnStart: 1
-  showRenderersBeforeAnimation: 0
+  hideRenderersOnStart: 0
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 1
   hideRenderersOnComplete: 0
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -3651,26 +3804,27 @@ MonoBehaviour:
   scenarioManager: {fileID: 815250542}
   step: 5
   requiredToolId: 
-  completeOnlyOnce: 0
+  completeOnlyOnce: 1
   requiresHold: 0
   holdDuration: 1.2
   hideRenderersUntilFocused: 0
   focusRenderers: []
   hideRenderersOnStart: 0
-  showRenderersBeforeAnimation: 1
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 0
   hideRenderersOnComplete: 1
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 1
   animatedTransform: {fileID: 856466988}
-  useTargetLocalPosition: 1
-  targetLocalPosition: {x: 1.3, y: -0.2851, z: -0.2916}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: -1.0823474, y: 0.103684105, z: 0.08919744}
+  animationToLocalPosition: {x: -1.299, y: 0.103684105, z: 0.08919744}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 1
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
-  disableThisObjectOnComplete: 1
+  disableThisObjectOnComplete: 0
   completed:
     m_PersistentCalls:
       m_Calls: []
@@ -3706,24 +3860,25 @@ MonoBehaviour:
   requiredToolId: 1
   completeOnlyOnce: 1
   requiresHold: 1
-  holdDuration: 1.2
+  holdDuration: 0.5
   hideRenderersUntilFocused: 0
   focusRenderers: []
   hideRenderersOnStart: 0
-  showRenderersBeforeAnimation: 0
+  showRenderersOnInteractionStart: 0
   showRenderersOnComplete: 0
   hideRenderersOnComplete: 1
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 3.13, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 3.13, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
-  disableThisObjectOnComplete: 1
+  disableThisObjectOnComplete: 0
   completed:
     m_PersistentCalls:
       m_Calls: []
@@ -3759,24 +3914,25 @@ MonoBehaviour:
   requiredToolId: 1
   completeOnlyOnce: 1
   requiresHold: 1
-  holdDuration: 1.2
+  holdDuration: 0.5
   hideRenderersUntilFocused: 0
   focusRenderers: []
   hideRenderersOnStart: 0
-  showRenderersBeforeAnimation: 0
+  showRenderersOnInteractionStart: 0
   showRenderersOnComplete: 0
   hideRenderersOnComplete: 1
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 3.13, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 3.13, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
-  disableThisObjectOnComplete: 1
+  disableThisObjectOnComplete: 0
   completed:
     m_PersistentCalls:
       m_Calls: []
@@ -3812,21 +3968,22 @@ MonoBehaviour:
   requiredToolId: 1
   completeOnlyOnce: 1
   requiresHold: 1
-  holdDuration: 1.2
+  holdDuration: 0.5
   hideRenderersUntilFocused: 0
   focusRenderers: []
-  hideRenderersOnStart: 1
-  showRenderersBeforeAnimation: 0
+  hideRenderersOnStart: 0
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 1
   hideRenderersOnComplete: 0
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -3850,21 +4007,22 @@ MonoBehaviour:
   requiredToolId: 1
   completeOnlyOnce: 1
   requiresHold: 1
-  holdDuration: 1.2
+  holdDuration: 0.5
   hideRenderersUntilFocused: 0
   focusRenderers: []
-  hideRenderersOnStart: 1
-  showRenderersBeforeAnimation: 0
+  hideRenderersOnStart: 0
+  showRenderersOnInteractionStart: 1
   showRenderersOnComplete: 1
   hideRenderersOnComplete: 0
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 0
   animatedTransform: {fileID: 0}
-  useTargetLocalPosition: 0
-  targetLocalPosition: {x: 0, y: 0, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0, z: 0}
+  animationToLocalPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.45
+  legacyUseTargetLocalPosition: 0
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -3918,17 +4076,18 @@ MonoBehaviour:
   hideRenderersUntilFocused: 0
   focusRenderers: []
   hideRenderersOnStart: 0
-  showRenderersBeforeAnimation: 0
+  showRenderersOnInteractionStart: 0
   showRenderersOnComplete: 0
-  hideRenderersOnComplete: 1
+  hideRenderersOnComplete: 0
   hiddenRendererMaterial: {fileID: 0}
   animateTransform: 1
   animatedTransform: {fileID: 2076343859450078397}
-  useTargetLocalPosition: 1
-  targetLocalPosition: {x: 0, y: 1.38, z: 0}
-  localPositionOffset: {x: 0, y: 0, z: 0}
-  localRotationOffset: {x: 0, y: 0, z: 0}
+  animationFromLocalPosition: {x: 0, y: 0.22, z: 0}
+  animationToLocalPosition: {x: 0, y: 1.38, z: 0}
   animationDuration: 1.2
+  legacyUseTargetLocalPosition: 1
+  legacyLocalPositionOffset: {x: 0, y: 0, z: 0}
+  legacyLocalRotationOffset: {x: 0, y: 0, z: 0}
   enableOnComplete: []
   disableOnComplete: []
   disableThisObjectOnComplete: 0
@@ -3969,3 +4128,4 @@ SceneRoots:
   - {fileID: 1611275624}
   - {fileID: 323781526}
   - {fileID: 780588189}
+  - {fileID: 461737357}

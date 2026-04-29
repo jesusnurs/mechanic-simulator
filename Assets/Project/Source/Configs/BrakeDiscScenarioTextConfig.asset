@@ -17,19 +17,19 @@ MonoBehaviour:
     header: "Этап 1: Подготовка"
     task: "Нажмите на рычаг Carjack, чтобы поднять Caret."
     prompt: "ЛКМ - поднять машину"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 1
     header: "Этап 1: Колесо"
     task: "Снимите крышку колеса (kalpak)."
     prompt: "ЛКМ - снять крышку"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 2
     header: "Этап 1: Колесо"
     task: "Положите крышку на отмеченное место на столе."
     prompt: "ЛКМ - положить крышку"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 3
     header: "Этап 1: Колесо"
@@ -47,13 +47,13 @@ MonoBehaviour:
     header: "Этап 1: Колесо"
     task: "Снимите колесо со ступицы."
     prompt: "ЛКМ - снять колесо"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 6
     header: "Этап 1: Колесо"
     task: "Поставьте колесо на его место на столе."
     prompt: "ЛКМ - поставить колесо"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 7
     header: "Этап 2: Суппорт"
@@ -71,13 +71,13 @@ MonoBehaviour:
     header: "Этап 2: Суппорт"
     task: "Снимите суппорт и освободите доступ к колодкам."
     prompt: "ЛКМ - снять суппорт"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 10
     header: "Этап 2: Суппорт"
     task: "Положите суппорт на отмеченное место на столе."
     prompt: "ЛКМ - положить суппорт"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 11
     header: "Этап 2: Колодки"
@@ -107,43 +107,49 @@ MonoBehaviour:
     header: "Этап 2: Скоба"
     task: "Снимите скобу суппорта."
     prompt: "ЛКМ - снять скобу"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 16
     header: "Этап 2: Скоба"
     task: "Положите скобу суппорта на стол."
     prompt: "ЛКМ - положить скобу"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 19
     header: "Этап 2: Диск"
     task: "Снимите старый тормозной диск."
     prompt: "ЛКМ - снять старый диск"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 20
     header: "Этап 2: Диск"
     task: "Положите старый тормозной диск на стол."
     prompt: "ЛКМ - положить старый диск"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 21
     header: "Этап 3: Новый диск"
+    task: "Возьмите новый тормозной диск со стола."
+    prompt: "ЛКМ - взять новый диск"
+    progressFormat:
+    requiredToolId: Hands
+  - step: 22
+    header: "Этап 3: Новый диск"
     task: "Установите новый тормозной диск со стола."
     prompt: "ЛКМ - установить новый диск"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 25
     header: "Этап 3: Сборка"
     task: "Возьмите скобу суппорта со стола."
     prompt: "ЛКМ - взять скобу"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 26
     header: "Этап 3: Сборка"
     task: "Установите скобу суппорта на место."
     prompt: "ЛКМ - установить скобу"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 27
     header: "Этап 3: Сборка"
@@ -173,13 +179,13 @@ MonoBehaviour:
     header: "Этап 3: Сборка"
     task: "Возьмите суппорт со стола."
     prompt: "ЛКМ - взять суппорт"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 32
     header: "Этап 3: Сборка"
     task: "Установите суппорт на место."
     prompt: "ЛКМ - установить суппорт"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 33
     header: "Этап 3: Сборка"
@@ -197,13 +203,13 @@ MonoBehaviour:
     header: "Этап 4: Колесо"
     task: "Возьмите колесо со стола."
     prompt: "ЛКМ - взять колесо"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 36
     header: "Этап 4: Колесо"
     task: "Установите колесо обратно на ступицу."
     prompt: "ЛКМ - установить колесо"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 37
     header: "Этап 4: Колесо"
@@ -221,19 +227,19 @@ MonoBehaviour:
     header: "Этап 4: Колесо"
     task: "Возьмите колпак со стола."
     prompt: "ЛКМ - взять колпак"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 40
     header: "Этап 4: Колесо"
     task: "Поставьте колпак обратно на колесо."
     prompt: "ЛКМ - поставить колпак"
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   - step: 41
     header: "Готово"
     task: "Ремонт завершён. Тормозной диск заменён."
     prompt: 
-    progressFormat: 
+    progressFormat:
     requiredToolId: Hands
   scenarioNotReadyReason: "Сценарий ещё не готов"
   differentTaskReason: "Сейчас нужно выполнить другую задачу"
