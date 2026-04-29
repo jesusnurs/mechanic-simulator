@@ -7,16 +7,24 @@ namespace BigDreamLab.Interaction
     {
         [SerializeField] string highlightLayerName = "Outline";
         [SerializeField] bool includeChildren = true;
+        [SerializeField] Color hintColor = Color.yellow;
 
         readonly List<Transform> m_Targets = new List<Transform>();
         readonly List<int> m_DefaultLayers = new List<int>();
 
+        static Material s_OutlineMaterial;
+        static Color s_DefaultOutlineColor;
+        static bool s_HasDefaultOutlineColor;
+        static int s_ActiveHintCount;
+
         int m_HighlightLayer = -1;
         bool m_CacheBuilt;
-        bool m_IsHighlighted;
+        bool m_IsFocusHighlighted;
+        bool m_IsHintHighlighted;
+        bool m_IsLayerHighlighted;
         bool m_WarnedAboutMissingLayer;
 
-        public bool IsHighlighted => m_IsHighlighted;
+        public bool IsHighlighted => m_IsFocusHighlighted || m_IsHintHighlighted;
 
         void Awake()
         {
@@ -25,14 +33,35 @@ namespace BigDreamLab.Interaction
 
         void OnDisable()
         {
+            ToggleHintOutline(false);
             ToggleOutline(false);
         }
 
         public void ToggleOutline(bool isHighlighted)
         {
-            if (m_IsHighlighted == isHighlighted)
+            if (m_IsFocusHighlighted == isHighlighted)
                 return;
 
+            m_IsFocusHighlighted = isHighlighted;
+            ApplyHighlightState();
+        }
+
+        public void ToggleHintOutline(bool isHighlighted)
+        {
+            if (m_IsHintHighlighted == isHighlighted)
+                return;
+
+            m_IsHintHighlighted = isHighlighted;
+            s_ActiveHintCount += isHighlighted ? 1 : -1;
+            if (s_ActiveHintCount < 0)
+                s_ActiveHintCount = 0;
+
+            ApplyOutlineColor(s_ActiveHintCount > 0 ? hintColor : (Color?)null);
+            ApplyHighlightState();
+        }
+
+        void ApplyHighlightState()
+        {
             BuildCache();
             if (m_HighlightLayer < 0)
             {
@@ -40,16 +69,20 @@ namespace BigDreamLab.Interaction
                 return;
             }
 
+            var shouldHighlight = IsHighlighted;
+            if (m_IsLayerHighlighted == shouldHighlight)
+                return;
+
             for (var i = 0; i < m_Targets.Count; i++)
             {
                 var target = m_Targets[i];
                 if (target == null)
                     continue;
 
-                target.gameObject.layer = isHighlighted ? m_HighlightLayer : m_DefaultLayers[i];
+                target.gameObject.layer = shouldHighlight ? m_HighlightLayer : m_DefaultLayers[i];
             }
 
-            m_IsHighlighted = isHighlighted;
+            m_IsLayerHighlighted = shouldHighlight;
         }
 
         void BuildCache()
@@ -90,6 +123,42 @@ namespace BigDreamLab.Interaction
 
             m_WarnedAboutMissingLayer = true;
             Debug.LogWarning($"{nameof(SelectionOutline)} needs a Unity layer named '{highlightLayerName}'.", this);
+        }
+
+        static void ApplyOutlineColor(Color? color)
+        {
+            var outlineMaterial = GetOutlineMaterial();
+            if (outlineMaterial == null || !outlineMaterial.HasProperty("_Color"))
+                return;
+
+            outlineMaterial.SetColor("_Color", color ?? s_DefaultOutlineColor);
+        }
+
+        static Material GetOutlineMaterial()
+        {
+            if (s_OutlineMaterial != null)
+                return s_OutlineMaterial;
+
+            var materials = Resources.FindObjectsOfTypeAll<Material>();
+            foreach (var material in materials)
+            {
+                if (material == null || material.name != "OutlineMaterial")
+                    continue;
+
+                s_OutlineMaterial = material;
+                if (material.HasProperty("_Color"))
+                {
+                    s_DefaultOutlineColor = material.GetColor("_Color");
+                    s_HasDefaultOutlineColor = true;
+                }
+
+                break;
+            }
+
+            if (!s_HasDefaultOutlineColor)
+                s_DefaultOutlineColor = Color.white;
+
+            return s_OutlineMaterial;
         }
     }
 }

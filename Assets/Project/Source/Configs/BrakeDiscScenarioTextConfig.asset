@@ -115,18 +115,6 @@ MonoBehaviour:
     prompt: "ЛКМ - положить скобу"
     progressFormat: 
     requiredToolId: Hands
-  - step: 17
-    header: "Этап 2: Диск"
-    task: "Открутите фиксирующий винт тормозного диска."
-    prompt: "Удерживайте ЛКМ - открутить винт"
-    progressFormat: 
-    requiredToolId: DynamometricWrench
-  - step: 18
-    header: "Этап 2: Диск"
-    task: "Положите фиксирующий винт на стол."
-    prompt: "ЛКМ - положить винт"
-    progressFormat: 
-    requiredToolId: Hands
   - step: 19
     header: "Этап 2: Диск"
     task: "Снимите старый тормозной диск."
@@ -145,24 +133,6 @@ MonoBehaviour:
     prompt: "ЛКМ - установить новый диск"
     progressFormat: 
     requiredToolId: Hands
-  - step: 22
-    header: "Этап 3: Новый диск"
-    task: "Возьмите фиксирующий винт со стола."
-    prompt: "ЛКМ - взять винт"
-    progressFormat: 
-    requiredToolId: Hands
-  - step: 23
-    header: "Этап 3: Новый диск"
-    task: "Вставьте фиксирующий винт в тормозной диск."
-    prompt: "ЛКМ - вставить винт"
-    progressFormat: 
-    requiredToolId: Hands
-  - step: 24
-    header: "Этап 3: Новый диск"
-    task: "Затяните фиксирующий винт."
-    prompt: "Удерживайте ЛКМ - затянуть винт"
-    progressFormat: 
-    requiredToolId: DynamometricWrench
   - step: 25
     header: "Этап 3: Сборка"
     task: "Возьмите скобу суппорта со стола."

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using BigDreamLab.Interaction;
 using BigDreamLab.UI;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace BigDreamLab.Scenario
 {
@@ -23,14 +25,9 @@ namespace BigDreamLab.Scenario
         PlaceCaliperBracketBoltsOnTable = 14,
         RemoveCaliperBracket = 15,
         PlaceCaliperBracketOnTable = 16,
-        UnscrewBrakeDiscFixingScrew = 17,
-        PlaceBrakeDiscFixingScrewOnTable = 18,
         RemoveOldBrakeDisc = 19,
         PlaceOldBrakeDiscOnTable = 20,
         InstallNewBrakeDisc = 21,
-        TakeBrakeDiscFixingScrewFromTable = 22,
-        InsertBrakeDiscFixingScrew = 23,
-        TightenBrakeDiscFixingScrew = 24,
         TakeCaliperBracketFromTable = 25,
         InstallCaliperBracket = 26,
         TakeCaliperBracketBoltsFromTable = 27,
@@ -62,11 +59,15 @@ namespace BigDreamLab.Scenario
         [Header("Flow")]
         [SerializeField] BrakeDiscScenarioStep initialStep = BrakeDiscScenarioStep.RaiseCarWithJack;
         [SerializeField] bool resetActionsOnStart = true;
+        [SerializeField] bool holdAltToHighlightCurrentTargets = true;
 
         public BrakeDiscScenarioStep CurrentStep { get; private set; }
         public string ScenarioNotReadyReason => textConfig != null ? textConfig.scenarioNotReadyReason : "Сценарий ещё не готов";
         public string DifferentTaskReason => textConfig != null ? textConfig.differentTaskReason : "Сейчас нужно выполнить другую задачу";
         public string AlreadyDoneReason => textConfig != null ? textConfig.alreadyDoneReason : "Это действие уже выполнено";
+
+        readonly List<SelectionOutline> m_HintOutlines = new List<SelectionOutline>();
+        bool m_IsHintVisible;
 
         void Awake()
         {
@@ -77,6 +78,7 @@ namespace BigDreamLab.Scenario
                 ResetActions();
 
             RefreshActionFocus();
+            RefreshHintTargets();
             RefreshHud();
         }
 
@@ -90,6 +92,13 @@ namespace BigDreamLab.Scenario
         {
             if (toolController != null)
                 toolController.ToolChanged -= RefreshHud;
+
+            SetHintVisible(false);
+        }
+
+        void Update()
+        {
+            UpdateHintInput();
         }
 
         public bool IsCurrentTarget(ScenarioStepInteractable action)
@@ -148,12 +157,21 @@ namespace BigDreamLab.Scenario
         {
             CurrentStep = step;
             RefreshActionFocus();
+            RefreshHintTargets();
             RefreshHud();
         }
 
         void ConfigureActions()
         {
             actions.RemoveAll(action => action == null);
+            foreach (var sceneAction in FindObjectsByType<ScenarioStepInteractable>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            {
+                if (sceneAction != null && !actions.Contains(sceneAction))
+                    actions.Add(sceneAction);
+            }
+
+            actions.Sort((left, right) => left.Step.CompareTo(right.Step));
+
             foreach (var action in actions)
                 action.Configure(this);
         }
@@ -237,6 +255,63 @@ namespace BigDreamLab.Scenario
 
             hud.SetToolName(toolName);
             hud.SetTask(header, task, progress);
+        }
+
+        void UpdateHintInput()
+        {
+            if (!holdAltToHighlightCurrentTargets)
+                return;
+
+            var keyboard = Keyboard.current;
+            var shouldShowHint = keyboard != null &&
+                (keyboard.leftAltKey.isPressed || keyboard.rightAltKey.isPressed);
+
+            if (shouldShowHint == m_IsHintVisible)
+            {
+                if (m_IsHintVisible)
+                    RefreshHintTargets();
+
+                return;
+            }
+
+            SetHintVisible(shouldShowHint);
+        }
+
+        void SetHintVisible(bool isVisible)
+        {
+            if (m_IsHintVisible == isVisible)
+                return;
+
+            m_IsHintVisible = isVisible;
+            RefreshHintTargets();
+        }
+
+        void RefreshHintTargets()
+        {
+            for (var i = m_HintOutlines.Count - 1; i >= 0; i--)
+            {
+                var outline = m_HintOutlines[i];
+                if (outline != null)
+                    outline.ToggleHintOutline(false);
+            }
+
+            m_HintOutlines.Clear();
+
+            if (!m_IsHintVisible)
+                return;
+
+            foreach (var action in actions)
+            {
+                if (!IsCurrentTarget(action))
+                    continue;
+
+                var outline = action.GetComponentInParent<SelectionOutline>();
+                if (outline == null || m_HintOutlines.Contains(outline))
+                    continue;
+
+                outline.ToggleHintOutline(true);
+                m_HintOutlines.Add(outline);
+            }
         }
     }
 }

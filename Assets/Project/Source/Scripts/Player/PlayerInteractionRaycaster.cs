@@ -168,24 +168,34 @@ namespace BigDreamLab.Player
 
             hit = m_RaycastHits[closestIndex];
             var behaviours = hit.collider.GetComponentsInParent<MonoBehaviour>(true);
+            var context = new PlayerInteractionContext(playerInput, this, rayCamera, hit, playerInput != null ? playerInput.InteractHoldTime : 0f);
             IPlayerInteractable interactable = null;
+            var rejectedByFocusVisibility = false;
             foreach (var behaviour in behaviours)
             {
-                if (behaviour is IPlayerInteractable playerInteractable)
+                if (behaviour is not IPlayerInteractable playerInteractable)
+                    continue;
+
+                if (playerInteractable is IPlayerFocusVisibility focusVisibility &&
+                    !focusVisibility.ShouldShowFocus(context))
                 {
-                    interactable = playerInteractable;
-                    break;
+                    rejectedByFocusVisibility = true;
+                    continue;
                 }
+
+                interactable = playerInteractable;
+                break;
             }
 
-            outline = ResolveOutline(hit.collider, interactable);
-            if (interactable is IPlayerFocusVisibility focusVisibility &&
-                !focusVisibility.ShouldShowFocus(new PlayerInteractionContext(playerInput, this, rayCamera, hit, playerInput != null ? playerInput.InteractHoldTime : 0f)))
+            if (interactable == null)
             {
-                outline = null;
+                if (!rejectedByFocusVisibility)
+                    outline = ResolveOutline(hit.collider, null);
+
                 return null;
             }
 
+            outline = ResolveOutline(hit.collider, interactable);
             return interactable;
         }
 
