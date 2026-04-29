@@ -1281,49 +1281,63 @@ MonoBehaviour:
   - {fileID: 569232039}
   - {fileID: 1932929847}
   - {fileID: 1859471377}
-  - {fileID: 710000000000000012}
   - {fileID: 1611275629}
   - {fileID: 1611275628}
   - {fileID: 1611275627}
   - {fileID: 1611275626}
   - {fileID: 1611275625}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 710000000000000012}
+  - {fileID: 1786091116}
+  - {fileID: 581312856}
+  - {fileID: 366807984}
+  - {fileID: 1786091115}
+  - {fileID: 1786091114}
+  - {fileID: 960930340}
+  - {fileID: 1786091113}
+  - {fileID: 871066560}
+  - {fileID: 1786091112}
+  - {fileID: 1129070742}
+  - {fileID: 1786091111}
+  - {fileID: 710000000000000016}
+  - {fileID: 710000000000000014}
+  - {fileID: 1786091110}
+  - {fileID: 1786091109}
+  - {fileID: 1473840171}
+  - {fileID: 1786091108}
+  - {fileID: 715551218}
+  - {fileID: 1786091107}
+  - {fileID: 1786091106}
+  - {fileID: 715551218}
+  - {fileID: 1786091108}
+  - {fileID: 1473840171}
+  - {fileID: 1786091109}
+  - {fileID: 1786091110}
+  - {fileID: 710000000000000016}
+  - {fileID: 710000000000000014}
+  - {fileID: 1786091111}
+  - {fileID: 1129070742}
+  - {fileID: 1786091112}
+  - {fileID: 871066560}
+  - {fileID: 1786091113}
+  - {fileID: 960930340}
+  - {fileID: 1786091114}
+  - {fileID: 1786091115}
+  - {fileID: 581312856}
+  - {fileID: 366807984}
+  - {fileID: 1786091116}
+  - {fileID: 710000000000000012}
+  - {fileID: 1611275625}
+  - {fileID: 1611275626}
+  - {fileID: 1611275627}
+  - {fileID: 1611275628}
+  - {fileID: 1611275629}
+  - {fileID: 774124481}
+  - {fileID: 1786092514}
+  - {fileID: 569232039}
+  - {fileID: 1932929847}
+  - {fileID: 1859471377}
+  - {fileID: 738407220}
+  - {fileID: 1602891137}
   initialStep: 0
   resetActionsOnStart: 1
   holdAltToHighlightCurrentTargets: 1
@@ -2361,7 +2375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8098055010719458865, guid: 0df5f16aa715b144baff98a0e08c7062, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8280479010434048163, guid: 0df5f16aa715b144baff98a0e08c7062, type: 3}
       propertyPath: m_Layer
@@ -2940,6 +2954,127 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8058981109181787525, guid: 762e3fb78e1e5ca44bdd856d419a77e9, type: 3}
   m_PrefabInstance: {fileID: 1859471373}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1786091106 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2832641316453610131, guid: ac466126194da1a4ca46778133ffed13, type: 3}
+  m_PrefabInstance: {fileID: 1611275624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d39fdeaa14542da85f9c999c06527cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BigDreamLab.Scenario.ScenarioStepInteractable
+--- !u!114 &1786091107 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8549382672336006424, guid: ac466126194da1a4ca46778133ffed13, type: 3}
+  m_PrefabInstance: {fileID: 1611275624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d39fdeaa14542da85f9c999c06527cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BigDreamLab.Scenario.ScenarioStepInteractable
+--- !u!114 &1786091108 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2963696994816777703, guid: ac466126194da1a4ca46778133ffed13, type: 3}
+  m_PrefabInstance: {fileID: 1611275624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d39fdeaa14542da85f9c999c06527cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BigDreamLab.Scenario.ScenarioStepInteractable
+--- !u!114 &1786091109 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1140263045563486915, guid: ac466126194da1a4ca46778133ffed13, type: 3}
+  m_PrefabInstance: {fileID: 1611275624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d39fdeaa14542da85f9c999c06527cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BigDreamLab.Scenario.ScenarioStepInteractable
+--- !u!114 &1786091110 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 507536578934349190, guid: ac466126194da1a4ca46778133ffed13, type: 3}
+  m_PrefabInstance: {fileID: 1611275624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d39fdeaa14542da85f9c999c06527cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BigDreamLab.Scenario.ScenarioStepInteractable
+--- !u!114 &1786091111 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4495785042591849112, guid: ac466126194da1a4ca46778133ffed13, type: 3}
+  m_PrefabInstance: {fileID: 1611275624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d39fdeaa14542da85f9c999c06527cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BigDreamLab.Scenario.ScenarioStepInteractable
+--- !u!114 &1786091112 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1326155000686905404, guid: ac466126194da1a4ca46778133ffed13, type: 3}
+  m_PrefabInstance: {fileID: 1611275624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d39fdeaa14542da85f9c999c06527cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BigDreamLab.Scenario.ScenarioStepInteractable
+--- !u!114 &1786091113 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8796604726026859492, guid: ac466126194da1a4ca46778133ffed13, type: 3}
+  m_PrefabInstance: {fileID: 1611275624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d39fdeaa14542da85f9c999c06527cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BigDreamLab.Scenario.ScenarioStepInteractable
+--- !u!114 &1786091114 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6336602585943663831, guid: ac466126194da1a4ca46778133ffed13, type: 3}
+  m_PrefabInstance: {fileID: 1611275624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d39fdeaa14542da85f9c999c06527cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BigDreamLab.Scenario.ScenarioStepInteractable
+--- !u!114 &1786091115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2253545527533535148, guid: ac466126194da1a4ca46778133ffed13, type: 3}
+  m_PrefabInstance: {fileID: 1611275624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d39fdeaa14542da85f9c999c06527cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BigDreamLab.Scenario.ScenarioStepInteractable
+--- !u!114 &1786091116 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 831631272188685030, guid: ac466126194da1a4ca46778133ffed13, type: 3}
+  m_PrefabInstance: {fileID: 1611275624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d39fdeaa14542da85f9c999c06527cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BigDreamLab.Scenario.ScenarioStepInteractable
 --- !u!1001 &1786092510
 PrefabInstance:
   m_ObjectHideFlags: 0
